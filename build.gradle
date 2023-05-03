@@ -17,13 +17,18 @@ apply plugin: 'kotlin'
 
 archivesBaseName = 'kotlib'
 group 'kr.es6'
-try {
-	version project.KOTLIB_VERSION
-} catch (Exception ignored) {
+
+java.sourceCompatibility = JavaVersion.VERSION_17
+tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile).configureEach {
+	kotlinOptions {
+		jvmTarget = JavaVersion.VERSION_17
+	}
 }
 
 // Run this task to bundle all needed dependency
 task bundle(type: Jar) {
+	archiveFileName.set("$archivesBaseName-all.jar")
+	from { configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) } }
 	with jar
 }
 
