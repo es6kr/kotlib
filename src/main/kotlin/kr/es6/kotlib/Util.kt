@@ -1,11 +1,11 @@
-package kr.or.lightsalt
+package kr.es6.kotlib
 
 import java.util.*
 
 val String?.uuid: UUID
 	get() {
 		return if (isNullOrBlank()) UUID.randomUUID()
-		else UUID.nameUUIDFromBytes(this!!.toByteArray())
+		else UUID.nameUUIDFromBytes(this.toByteArray())
 	}
 
 inline fun <T> Array<T>.each(action: T.() -> Unit) {

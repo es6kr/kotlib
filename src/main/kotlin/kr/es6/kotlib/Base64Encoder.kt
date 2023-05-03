@@ -1,4 +1,4 @@
-package kr.or.lightsalt
+package kr.es6.kotlib
 
 import java.math.BigInteger
 import java.util.*
@@ -6,7 +6,7 @@ import java.util.*
 abstract class Base64Encoder {
 	abstract fun encode(byteArray: ByteArray): String
 
-	fun encode(longValue: Long) = encode(BigInteger.valueOf(longValue).toByteArray())
+	open fun encode(longValue: Long) = encode(BigInteger.valueOf(longValue).toByteArray())
 
 	fun encode(uuid: UUID) = encode(uuid.mostSignificantBits) + encode(uuid.leastSignificantBits)
 }

@@ -1,4 +1,4 @@
-package kr.or.lightsalt
+package kr.es6.kotlib
 
 import org.joda.time.LocalDate
 import org.joda.time.LocalTime
@@ -7,7 +7,7 @@ import org.joda.time.format.DateTimeFormat.forPattern
 import java.util.*
 
 val longDatePattern by lazy { DateTimeFormat.patternForStyle("L-", Locale.getDefault())!! }
-val monthAndDayPattern by lazy { longDatePattern.replace("y+[\\S]*".toRegex(), "").trim() }
+val monthAndDayPattern by lazy { longDatePattern.replace("y+\\S*".toRegex(), "").trim() }
 
 val shortTimePattern by lazy { DateTimeFormat.shortTime()!! }
 
