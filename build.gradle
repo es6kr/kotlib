@@ -18,10 +18,10 @@ apply plugin: 'kotlin'
 archivesBaseName = 'kotlib'
 group 'kr.es6'
 
-java.sourceCompatibility = JavaVersion.VERSION_17
+java.sourceCompatibility = JavaVersion.VERSION_11
 tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile).configureEach {
 	kotlinOptions {
-		jvmTarget = JavaVersion.VERSION_17
+		jvmTarget = JavaVersion.VERSION_11
 	}
 }
 
